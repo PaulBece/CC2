@@ -7,7 +7,6 @@ class Iterator
 {
     T* it;
 public:
-    // T* it;
 
     void operator =(T* valor)
     {
@@ -48,6 +47,11 @@ public:
     bool operator!=(T* otro)
     {
         return it != otro;
+    }
+
+    bool operator!()
+    {
+        return it;
     }
 
     friend istream& operator >> (istream& input, Iterator D)
@@ -136,9 +140,11 @@ public:
     nodo<T>* begin() {
         return head;
     }
-    nodo<T>* end() {
-        return 0;
-    }
+    
+    // nodo<T>* end() {
+    //     return 0;
+    // }
+
     ~LE() {
         /* cout<<"Destruyendo lista..."<<endl;
         while(head)
@@ -160,27 +166,32 @@ int main() {
         lista1.add(i);
     }
 
+    nodo<int> uwu=(5);
+    It=lista1.begin();
+    It=uwu;
+    lista1.print();
+
     int x = 100;
-    for (It = lista1.begin(); It != 0; It++)
+    for (It = lista1.begin(); !It; It++)
     {
         It = x;
         x += 100;
     }
 
-    for (It = lista1.begin(); It != 0; It++)
+    for (It = lista1.begin(); !It; It++)
     {
         cout << It << endl;
     }
 
     cout << "-----------------" << endl;
 
-    for (It = lista1.begin(); It != 0; It++)
+    for (It = lista1.begin(); !It; It++)
     {
         cout << "Ingrese un numero a la lista: ";
         cin >> It;
     }
 
-    for (It = lista1.begin(); It != 0; It++)
+    for (It = lista1.begin(); !It; It++)
     {
         cout << It << endl;
     }
